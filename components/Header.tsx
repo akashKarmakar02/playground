@@ -12,6 +12,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useUser } from "@/hooks/useUser";
 import { FaUserAlt } from "react-icons/fa";
 import toast from "react-hot-toast/headless";
+import Link from "next/link";
 
 function Header({
   children,
@@ -60,12 +61,18 @@ function Header({
           </button>
         </div>
         <div className="flex md:hidden gap-x-2 items-center">
-          <button className="rounded-full bg-white p-2 flex items-center justify-center hover:opacity-75 transition">
+          <Link
+            href={"/"}
+            className="rounded-full bg-white p-2 flex items-center justify-center hover:opacity-75 transition"
+          >
             <HiHome className="text-black" size={20} />
-          </button>
-          <button className="rounded-full bg-white p-2 flex items-center justify-center hover:opacity-75 transition">
+          </Link>
+          <Link
+            className="rounded-full bg-white p-2 flex items-center justify-center hover:opacity-75 transition"
+            href={"/search"}
+          >
             <BiSearch className="text-black" size={20} />
-          </button>
+          </Link>
         </div>
         <div className="flex justify-between items-center gap-x-4">
           {user ? (
